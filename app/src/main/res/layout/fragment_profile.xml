@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragments.ProfileFragment">
+
+        <include
+            android:id="@+id/profileHeader"
+            layout="@layout/fragment_header_profile" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineizquierda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="21dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinederecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="21dp" />
+
+        <Button
+            android:id="@+id/miInformacion"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="21dp"
+            android:backgroundTint="@color/beige"
+            android:drawableLeft="@drawable/person"
+            android:drawableRight="@drawable/arrow_icon"
+            android:gravity="start|center"
+            android:text="Mi información"
+            android:textColor="@color/black"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+            app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+            app:layout_constraintTop_toBottomOf="@id/profileHeader" />
+
+        <Button
+            android:id="@+id/misTarjetas"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="21dp"
+            android:backgroundTint="@color/beige"
+            android:drawableLeft="@drawable/card_icon"
+            android:drawableRight="@drawable/arrow_icon"
+            android:gravity="start|center"
+            android:text="Mis tarjetas"
+            android:textColor="@color/black"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+            app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+            app:layout_constraintTop_toBottomOf="@id/miInformacion" />
+
+        <Button
+            android:id="@+id/opciones"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="21dp"
+            android:backgroundTint="@color/beige"
+            android:drawableLeft="@drawable/settings_icon"
+            android:drawableRight="@drawable/arrow_icon"
+            android:gravity="start|center"
+            android:text="Opciones"
+            android:textColor="@color/black"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+            app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+            app:layout_constraintTop_toBottomOf="@id/misTarjetas" />
+
+        <Button
+            android:id="@+id/ayuda"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="21dp"
+            android:backgroundTint="@color/beige"
+            android:drawableLeft="@drawable/help_icon"
+            android:drawableRight="@drawable/arrow_icon"
+            android:gravity="start|center"
+            android:text="Centro de ayuda"
+            android:textColor="@color/black"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+            app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+            app:layout_constraintTop_toBottomOf="@id/opciones" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

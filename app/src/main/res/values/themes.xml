@@ -1,0 +1,50 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.AlkeWalletFinal" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="fontFamily">@font/jua</item>
+    </style>
+
+    <style name="Theme.AlkeWalletFinal" parent="Base.Theme.AlkeWalletFinal" />
+    <style name="text_18_sp_white">
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="boton_azul_alke">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/alke_blue</item>
+        <item name="cornerRadius">10dp</item>
+    </style>
+    <style name="boton_transparente">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/alke_blue</item>
+        <item name="backgroundTint">@color/transparente</item>
+        <item name="cornerRadius">10dp</item>
+    </style>
+    <style name="texto_grande">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="boton_azul">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/azul</item>
+        <item name="cornerRadius">10dp</item>
+    </style>
+    <style name="imagenRedonda">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="boton_verde">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="backgroundTint">@color/verde</item>
+        <item name="cornerRadius">10dp</item>
+    </style>
+    <style name="imagenProfile">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">25%</item>
+    </style>
+</resources>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:background="@drawable/backgound_home_page"
+        tools:context=".view.fragments.HeaderHomePageFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineizquierda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="21dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinederecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="21dp" />
+
+        <LinearLayout
+            android:id="@+id/linearTexto"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="21dp"
+            android:gravity="left"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@id/linearImagenes"
+            app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/inicio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:text="@string/inicioStringProfile"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/saludo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="Hola, [nombre_cliente]"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/balanceTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/balance_total"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/saldo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="[saldo cliente]"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearImagenes"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="21dp"
+            android:gravity="right"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+            app:layout_constraintStart_toEndOf="@id/linearTexto"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profileImg"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/foto_usuario"
+                app:shapeAppearanceOverlay="@style/imagenRedonda" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="160dp" />
+
+            <ImageView
+                android:id="@+id/bellIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/bell_icon_badge"
+                android:src="@drawable/icon_bell" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

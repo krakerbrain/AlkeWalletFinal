@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "600797511732",
+    "project_id": "alkewallet-fcb58",
+    "storage_bucket": "alkewallet-fcb58.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600797511732:android:1f0d578d93845d53a8ca61",
+        "android_client_info": {
+          "package_name": "com.example.alkewalletfinal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwYW9ax8NLjrj4MKDoXRB0cYqtgD8sQag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

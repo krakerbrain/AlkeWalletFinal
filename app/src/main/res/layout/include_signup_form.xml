@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelinederecha"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="21dp" />
+
+            <!--Input Nombre-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelNombre"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jua"
+                android:text="@string/nombreLabel"
+                app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+                app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nombreInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+                app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+                app:layout_constraintTop_toBottomOf="@id/labelNombre">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editNombreInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/jua"
+                    android:hint="@string/ingresar_nombre"
+                    android:textColorHint="@color/gris_claro" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <!--End Input Nombre-->
+
+
+            <!--Input Apellido-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelApellido"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jua"
+                android:paddingTop="10dp"
+                android:text="@string/apellidoLabel"
+                app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+                app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+                app:layout_constraintTop_toBottomOf="@id/nombreInput" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/apellidoInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+                app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+                app:layout_constraintTop_toBottomOf="@id/labelApellido">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editApellidoInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/jua"
+                    android:hint="@string/ingresar_apellido"
+                    android:textColorHint="@color/gris_claro" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <!--End Input Apellido-->
+
+            <!--Input Mail-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jua"
+                android:paddingTop="10dp"
+                android:text="@string/emailLabel"
+                app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+                app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+                app:layout_constraintTop_toBottomOf="@id/apellidoInput"
+
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+                app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+                app:layout_constraintTop_toBottomOf="@id/labelEmail"
+
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editEmailInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/jua"
+                    android:hint="@string/ingresar_tu_email"
+                    android:textColorHint="@color/gris_claro" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <!--End Input Mail-->
+
+            <!-- Input Password   -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/label_pass"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jua"
+                android:paddingTop="10dp"
+                android:text="@string/passlLabel"
+                app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+                app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+                app:layout_constraintTop_toBottomOf="@id/emailInput"
+
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/gris_claro"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+                app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+                app:layout_constraintTop_toBottomOf="@id/label_pass"
+
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editPassInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/jua"
+                    android:hint="@string/ingresar_pass"
+                    android:inputType="textPassword"
+                    android:textColorHint="@color/gris_claro" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <!--End Input Password-->
+
+            <!-- Input Re-Password   -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/label_repass"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jua"
+                android:paddingTop="10dp"
+                android:text="@string/reingresar_contrase_a"
+                app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+                app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+                app:layout_constraintTop_toBottomOf="@id/passwordInput"
+
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/rePasswordInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/gris_claro"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+                app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+                app:layout_constraintTop_toBottomOf="@id/label_repass">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editConfirmPassInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/jua"
+                    android:hint="@string/reingresar_contrase_a"
+                    android:inputType="textPassword"
+                    android:textColorHint="@color/gris_claro" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <!--End Input Re-Password-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineizquierda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="21dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

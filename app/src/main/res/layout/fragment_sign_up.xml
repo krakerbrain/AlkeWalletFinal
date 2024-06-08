@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".view.fragments.SignUpFragment">
+
+        <ImageView
+            android:id="@+id/backgroundImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/background_login"
+            android:src="@drawable/avion_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="0dp"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <TextView
+            style="@style/texto_grande"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/registrarse_y"
+            app:layout_constraintBottom_toBottomOf="@id/guideline1"
+            app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+            app:layout_constraintStart_toStartOf="@id/guidelineizquierda" />
+
+        <TextView
+            android:id="@+id/text_empezar_tranferir"
+            style="@style/texto_grande"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/empezar_a_transferir"
+            app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+            app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+            app:layout_constraintTop_toTopOf="@id/guideline1" />
+
+        <include
+            android:id="@+id/include_signup_form"
+            layout="@layout/include_signup_form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="-20dp"
+            tools:layout_editor_absoluteY="-227dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="0dp"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineIzquierda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="0dp"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinederecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="21dp" />
+
+
+        <Button
+            android:id="@+id/crea_cuenta"
+            style="@style/boton_azul"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:text="@string/crear_cuenta"
+            app:layout_constraintBottom_toBottomOf="@id/guidelineIzquierda"
+            app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+            app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+            app:layout_constraintTop_toTopOf="@id/guideline4" />
+
+        <Button
+            android:id="@+id/tiene_cuenta"
+            style="@style/boton_transparente"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:text="@string/ya_tienes_una_cuenta"
+            android:textColor="@color/azul"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+            app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+            app:layout_constraintTop_toTopOf="@id/guidelineIzquierda" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineizquierda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="21dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

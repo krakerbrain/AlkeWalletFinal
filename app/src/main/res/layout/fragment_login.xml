@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragments.LoginFragment">
+
+    <ImageView
+        android:id="@+id/backgroundImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/background_login"
+        android:src="@drawable/avion_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="0dp"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <TextView
+        style="@style/texto_grande"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/logea_y_empeza_a"
+        app:layout_constraintBottom_toBottomOf="@id/guideline1"
+        app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+        app:layout_constraintStart_toStartOf="@id/guidelineizquierda" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="0dp"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <TextView
+        style="@style/texto_grande"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/transferir"
+        app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+        app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+        app:layout_constraintTop_toTopOf="@id/guideline1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="0dp"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <!--Input Mail-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/labelEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/jua"
+        android:text="@string/emailLabel"
+        app:layout_constraintBottom_toTopOf="@id/emailInput"
+        app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+        app:layout_constraintStart_toStartOf="@id/guidelineizquierda" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+        app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+        app:layout_constraintTop_toTopOf="@id/guideline2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jua"
+            android:hint="@string/ingresar_tu_email"
+            android:textColorHint="@color/gris_claro" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--End Input Mail-->
+
+    <!-- Input Password   -->
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/jua"
+        android:text="@string/passlLabel"
+        app:layout_constraintBottom_toTopOf="@id/passwordInput"
+        app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+        app:layout_constraintStart_toStartOf="@id/guidelineizquierda" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/gris_claro"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+        app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+        app:layout_constraintTop_toTopOf="@id/guideline3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jua"
+            android:hint="@string/ingresar_tu_pass"
+            android:inputType="textPassword"
+            android:textColorHint="@color/gris_claro" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--End Input Password-->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="0dp"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineIzquierda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="0dp"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelinederecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="21dp" />
+
+    <Button
+        android:id="@+id/login_btn"
+        style="@style/boton_azul_alke"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="@string/login_button"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineIzquierda"
+        app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+        app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+        app:layout_constraintTop_toTopOf="@id/guideline4" />
+
+    <Button
+        android:id="@+id/tiene_cuenta"
+        style="@style/boton_transparente"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="@string/crea_nueva_cuenta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
+        app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
+        app:layout_constraintTop_toTopOf="@id/guidelineIzquierda" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineizquierda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="21dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
