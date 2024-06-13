@@ -43,6 +43,12 @@
         <item name="backgroundTint">@color/verde</item>
         <item name="cornerRadius">10dp</item>
     </style>
+    <style name="boton_deshabilitado">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/gris</item>
+        <item name="backgroundTint">@color/grey_green</item>
+        <item name="cornerRadius">10dp</item>
+    </style>
     <style name="imagenProfile">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">25%</item>

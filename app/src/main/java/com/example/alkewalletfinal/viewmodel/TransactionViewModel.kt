@@ -29,7 +29,7 @@ class TransactionViewModel(
             val token = sharedPreferencesManager.getAuthToken()
             val accountId = sharedPreferencesManager.getAccountId()
             val depositRequest = DepositOrTransferRequest(type, concept, amount)
-
+            Log.d("TransactionViewModel", "accountId: $accountId")
             if (token != null && accountId != null) {
                 ApiClient.apiService.depositarOtransferir(
                     "Bearer $token",

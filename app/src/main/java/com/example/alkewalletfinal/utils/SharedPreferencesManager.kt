@@ -30,20 +30,13 @@ class SharedPreferencesManager(context: Context) {
         }
     }
 
-    fun saveSaldo(saldo: String) {
-        sharedPreferences.edit().apply {
-            putString("saldo", saldo)
-            apply()
-        }
-    }
-
-    fun saveAccountDetails(money: String, id: Long) {
+    fun saveAccountData(money: String, id: Long) {
         val editor = sharedPreferences.edit()
-        editor.putString("money", money)
         editor.putLong("account_id", id)
+        editor.putString("money",money)
         editor.apply()
     }
-    fun getAccountId(): Long? {
+    fun getAccountId(): Long {
         return sharedPreferences.getLong("account_id", -1)
     }
 

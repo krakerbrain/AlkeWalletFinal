@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -26,7 +28,10 @@ class HomePageFragment : Fragment() {
     private var _binding: FragmentHomePageBinding? = null
     private val binding get() = _binding!!
     private val transactionAdapter = TransactionAdapter()
-    private val transactionDao by lazy { AppDatabase.getDatabase(requireContext()).transactionDao() }
+    private val transactionDao by lazy {
+        AppDatabase.getDatabase(requireContext()).transactionDao()
+    }
+    private lateinit var sharedPreferencesManager: SharedPreferencesManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +46,25 @@ class HomePageFragment : Fragment() {
         setupHeaderFragment()
         setupRecyclerView()
         loadTransactions()
+        sharedPreferencesManager = SharedPreferencesManager(requireContext())
+
+        // Obtener saldo
+        val saldoStr = sharedPreferencesManager.getSaldo()
+        val saldo = saldoStr?.toFloatOrNull()
+
+        // Se cambia el color del botón según el saldo
+        if (saldo != null && saldo > 0) {
+            binding.enviarDinero.backgroundTintList =
+                ContextCompat.getColorStateList(requireContext(), R.color.verde) // Color habilitado
+
+        } else {
+            binding.enviarDinero.backgroundTintList = ContextCompat.getColorStateList(
+                requireContext(),
+                R.color.gris_claro
+            ) // Color deshabilitado
+
+        }
+
         binding.ingresarDinero.setOnClickListener {
             findNavController().navigate(R.id.action_homePageFragment_to_ingresarDineroFragment,
                 Bundle().apply {
@@ -49,10 +73,22 @@ class HomePageFragment : Fragment() {
         }
 
         binding.enviarDinero.setOnClickListener {
-            findNavController().navigate(R.id.action_homePageFragment_to_enviarDineroFragment,
-                Bundle().apply {
-                    putString("transaction_type", "payment")
-                })
+            //Se verifica el saldo si es 0 se envia mensaje de que no se pueden enviar dinero.
+            //Se prefiere mantener el click para mostrar mensaje al usuario
+            if (saldo != null && saldo > 0) {
+                findNavController().navigate(R.id.action_homePageFragment_to_enviarDineroFragment,
+                    Bundle().apply {
+                        putString("transaction_type", "payment")
+                    })
+
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "No se pueden hacer transferencias de una cuenta sin saldo",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
         }
 
         binding.headerContainerHomePage.profileImg.setOnClickListener {
@@ -71,7 +107,14 @@ class HomePageFragment : Fragment() {
     private fun loadTransactions() {
         transactionDao.getAllTransactions().observe(viewLifecycleOwner, Observer { transactions ->
             transactions?.let {
-                transactionAdapter.submitList(it)
+                if (it.isEmpty()) {
+                    binding.transactionsRecyclerView.visibility = View.GONE
+                    binding.noTransactionsView.visibility = View.VISIBLE
+                } else {
+                    binding.transactionsRecyclerView.visibility = View.VISIBLE
+                    binding.noTransactionsView.visibility = View.GONE
+                    transactionAdapter.submitList(it)
+                }
             }
         })
     }

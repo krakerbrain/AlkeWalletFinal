@@ -70,13 +70,13 @@ class LoginViewModel(
                 if (response.isSuccessful) {
                     val user = response.body()
                     user?.let {
-                        sharedPreferencesManager.saveUser(it)
-                        getUserAccountsDetails(token)
-                        _userDetails.value = it
-
                         if (isSignUp) {
                             createAccount(token)
                         }
+                        getUserAccountsDetails(token)
+                        sharedPreferencesManager.saveUser(it)
+
+                        _userDetails.value = it
                     }
                 } else {
                     _loginResult.value = false
@@ -89,31 +89,51 @@ class LoginViewModel(
         })
     }
 
-    fun getUserAccountsDetails(token: String) {
-        ApiClient.apiService.getUserAccountsDetails("Bearer $token").enqueue(object : Callback<List<AccountResponse>> {
-            override fun onResponse(
-                call: Call<List<AccountResponse>>,
-                response: Response<List<AccountResponse>>
-            ) {
-                if (response.isSuccessful) {
-                    val accounts = response.body()
-                    accounts?.let {
-                        if (it.isNotEmpty()) {
-                            val account = it[0]
-                            sharedPreferencesManager.saveAccountDetails(account.money, account.id)
-                            _accountDetailsUpdated.value = true
-                        }
+    private fun createAccount(token: String) {
+        ApiClient.apiService.createAccount("Bearer $token")
+            .enqueue(object : Callback<CreateAccountResponse> {
+                override fun onResponse(
+                    call: Call<CreateAccountResponse>,
+                    response: Response<CreateAccountResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        _createAccountResult.value
                     }
-                    fetchTransactions(token)
-                } else {
+                }
+
+                override fun onFailure(call: Call<CreateAccountResponse>, t: Throwable) {
+                    _createAccountResult.value = false
+                }
+            })
+    }
+
+    fun getUserAccountsDetails(token: String) {
+        ApiClient.apiService.getUserAccountsDetails("Bearer $token")
+            .enqueue(object : Callback<List<AccountResponse>> {
+                override fun onResponse(
+                    call: Call<List<AccountResponse>>,
+                    response: Response<List<AccountResponse>>
+                ) {
+                    if (response.isSuccessful) {
+                        val accounts = response.body()
+                        accounts?.let {
+                            if (it.isNotEmpty()) {
+                                val account = it[0]
+                                val money = account.money?.toString() ?: "0"
+                                sharedPreferencesManager.saveAccountData(money, account.id)
+                                _accountDetailsUpdated.value = true
+                            }
+                        }
+                        fetchTransactions(token)
+                    } else {
+                        _accountDetailsUpdated.value = false
+                    }
+                }
+
+                override fun onFailure(call: Call<List<AccountResponse>>, t: Throwable) {
                     _accountDetailsUpdated.value = false
                 }
-            }
-
-            override fun onFailure(call: Call<List<AccountResponse>>, t: Throwable) {
-                _accountDetailsUpdated.value = false
-            }
-        })
+            })
     }
 
     private fun fetchTransactions(token: String) {
@@ -128,47 +148,4 @@ class LoginViewModel(
         }
     }
 
-    private fun createAccount(token: String) {
-        ApiClient.apiService.createAccount("Bearer $token").enqueue(object : Callback<CreateAccountResponse> {
-            override fun onResponse(
-                call: Call<CreateAccountResponse>,
-                response: Response<CreateAccountResponse>
-            ) {
-                if (response.isSuccessful) {
-                    _createAccountResult.value = true
-                    updateAccount(token)
-                } else {
-                    _createAccountResult.value = false
-                }
-            }
-
-            override fun onFailure(call: Call<CreateAccountResponse>, t: Throwable) {
-                _createAccountResult.value = false
-            }
-        })
-    }
-
-    private fun updateAccount(token: String) {
-        val updateData = mapOf(
-            "money" to 0.00,
-            "isBlocked" to false
-        )
-        ApiClient.apiService.updateAccount("Bearer $token", updateData).enqueue(object : Callback<CreateAccountResponse> {
-            override fun onResponse(
-                call: Call<CreateAccountResponse>,
-                response: Response<CreateAccountResponse>
-            ) {
-                if (response.isSuccessful) {
-                    _updateAccountResult.value = true
-                    sharedPreferencesManager.saveSaldo("0")
-                } else {
-                    _updateAccountResult.value = false
-                }
-            }
-
-            override fun onFailure(call: Call<CreateAccountResponse>, t: Throwable) {
-                _updateAccountResult.value = false
-            }
-        })
-    }
 }

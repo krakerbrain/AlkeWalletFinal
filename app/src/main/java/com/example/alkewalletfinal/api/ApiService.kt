@@ -9,6 +9,7 @@ import com.example.alkewalletfinal.model.network.LoginResponse
 import com.example.alkewalletfinal.model.network.PaginatedTransactionResponse
 import com.example.alkewalletfinal.model.network.RegisterRequest
 import com.example.alkewalletfinal.model.network.RegisterResponse
+import com.example.alkewalletfinal.model.network.UpdateAccountData
 import com.example.alkewalletfinal.model.network.User
 import retrofit2.Call
 import retrofit2.http.Body
@@ -31,11 +32,12 @@ interface ApiService {
     @POST("/accounts")
     fun createAccount(@Header("Authorization") token: String): Call<CreateAccountResponse>
 
-    @PUT("/accounts/me")
-    fun updateAccount(
-        @Header("Authorization") token: String,
-        @Body updateData: Map<String, Any>
-    ): Call<CreateAccountResponse>
+//    @PUT("/accounts/{id}")
+//    fun updateAccount(
+//        @Header("Authorization") token: String,
+//        @Path("id") accountId: Long?,
+//        @Body updateData: UpdateAccountData
+//    ): Call<CreateAccountResponse>
 
     @GET("/accounts/me")
     fun getUserAccountsDetails(@Header("Authorization") token: String): Call<List<AccountResponse>>

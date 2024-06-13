@@ -1,6 +1,7 @@
 package com.example.alkewalletfinal.view.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -43,12 +44,7 @@ class SignUpFragment : Fragment() {
     private val transactionFetcher by lazy {
         TransactionFetcher(transactionRepository)
     }
-//    private val transactionViewModel: TransactionViewModel by viewModels {
-//        ViewModelFactory(
-//            sharedPreferencesManager,
-//            transactionFetcher
-//        )
-//    }
+
     private val loginViewModel: LoginViewModel by viewModels {
         ViewModelFactory(
             sharedPreferencesManager,
@@ -100,6 +96,12 @@ class SignUpFragment : Fragment() {
             }
         }
 
+        signUpViewModel.errorMessage.observe(viewLifecycleOwner) { errorMessage ->
+            errorMessage?.let {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+            }
+        }
+
         loginViewModel.loginResult.observe(viewLifecycleOwner) { isSuccess ->
             if (!isSuccess) {
                 Toast.makeText(
@@ -107,6 +109,8 @@ class SignUpFragment : Fragment() {
                     getString(R.string.login_failed),
                     Toast.LENGTH_SHORT
                 ).show()
+            }else{
+                findNavController().navigate(R.id.action_loginFragment_to_homePageFragment)
             }
         }
 
