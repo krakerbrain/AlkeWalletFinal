@@ -1,0 +1,65 @@
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:name="vector"
+            android:width="288dp"
+            android:height="288dp"
+            android:viewportWidth="288"
+            android:viewportHeight="288">
+            <group
+                android:name="alkewallet"
+                android:pivotX="144"
+                android:pivotY="144"
+                android:scaleX="0.85"
+                android:scaleY="0.85">
+                <path
+                    android:name="path"
+                    android:pathData="M 174.75 61 L 113.25 61 C 84.945 61 62 84.225 62 112.875 L 62 175.125 C 62 203.775 84.945 227 113.25 227 L 174.75 227 C 203.055 227 226 203.775 226 175.125 L 226 112.875 C 226 84.225 203.055 61 174.75 61 Z"
+                    android:fillColor="#ffffff"
+                    android:strokeWidth="1"/>
+                <path
+                    android:name="path_1"
+                    android:pathData="M 84.55 79.675 L 84.55 202.1 L 205.5 202.1 L 205.5 79.675 L 84.55 79.675 Z"
+                    android:fillColor="#ffffff"
+                    android:strokeWidth="1"/>
+                <path
+                    android:name="path_2"
+                    android:pathData="M 137.732 109.433 L 110.357 167.052 C 109.204 169.48 109.711 172.222 111.681 174.209 C 113.65 176.196 116.685 177.027 119.601 176.378 L 142.629 171.249 L 142.629 146.139 C 142.629 144.983 143.702 144.046 145.025 144.046 C 146.348 144.046 147.421 144.983 147.421 146.139 L 147.421 171.249 L 170.449 176.378 C 173.365 177.027 176.4 176.196 178.369 174.209 C 180.343 172.218 180.844 169.476 179.693 167.052 L 152.318 109.433 C 151.071 106.81 148.277 105.18 145.025 105.18 C 141.773 105.18 138.978 106.81 137.732 109.433 Z"
+                    android:fillColor="#63b8fc"
+                    android:strokeWidth="1"/>
+            </group>
+        </vector>
+    </aapt:attr>
+    <target android:name="alkewallet">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:startOffset="200"
+                    android:duration="500"
+                    android:valueFrom="0"
+                    android:valueTo="0.85"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/overshoot_interpolator"/>
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:startOffset="200"
+                    android:duration="500"
+                    android:valueFrom="0"
+                    android:valueTo="0.85"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/overshoot_interpolator"/>
+                <objectAnimator
+                    android:propertyName="rotation"
+                    android:startOffset="250"
+                    android:duration="350"
+                    android:valueFrom="0"
+                    android:valueTo="360"
+                    android:valueType="floatType"
+                    android:interpolator="@android:interpolator/fast_out_slow_in"/>
+            </set>
+        </aapt:attr>
+    </target>
+</animated-vector>
