@@ -32,13 +32,6 @@ interface ApiService {
     @POST("/accounts")
     fun createAccount(@Header("Authorization") token: String): Call<CreateAccountResponse>
 
-//    @PUT("/accounts/{id}")
-//    fun updateAccount(
-//        @Header("Authorization") token: String,
-//        @Path("id") accountId: Long?,
-//        @Body updateData: UpdateAccountData
-//    ): Call<CreateAccountResponse>
-
     @GET("/accounts/me")
     fun getUserAccountsDetails(@Header("Authorization") token: String): Call<List<AccountResponse>>
 

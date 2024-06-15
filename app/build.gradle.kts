@@ -52,9 +52,8 @@ dependencies {
     implementation(libs.androidx.annotation)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+
+
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.androidx.room.runtime)
@@ -67,4 +66,17 @@ dependencies {
     annotationProcessor(libs.androidx.room.compiler)
     kapt("androidx.room:room-compiler:2.6.1")
     implementation(libs.androidx.room.ktx)
+
+
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.mockwebserver.v490)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.mockito.mockito.core)
+    testImplementation(libs.mockito.inline)
+    testImplementation(libs.mockwebserver)
+    testImplementation(libs.retrofit.mock)
+    testImplementation(libs.converter.gson.v290)
+
 }
